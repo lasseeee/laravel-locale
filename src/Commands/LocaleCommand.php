@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\Skeleton\Commands;
+namespace Lasseeee\Locale\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LocaleCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-locale';
 
     public $description = 'My command';
 
