@@ -2,9 +2,10 @@
 
 namespace Lasseeee\Locale;
 
+use Illuminate\Routing\Router;
+use Lasseeee\Locale\Middleware\SetLocale;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Lasseeee\Locale\Commands\LocaleCommand;
 
 class LocaleServiceProvider extends PackageServiceProvider
 {
@@ -16,10 +17,12 @@ class LocaleServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('laravel-locale')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel_locale_table')
-            ->hasCommand(LocaleCommand::class);
+            ->name('laravel-locale');
+    }
+
+    public function bootingPackage()
+    {
+        $router = $this->app->make(Router::class);
+        $router->pushMiddlewareToGroup('web', SetLocale::class);
     }
 }
