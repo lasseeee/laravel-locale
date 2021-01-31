@@ -1,6 +1,6 @@
 <?php
 
-namespace Lasseeee\Locale\Middleware;
+namespace Lasseeee\Locale\Http\Middleware;
 
 use Closure;
 use Carbon\Carbon;

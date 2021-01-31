@@ -3,7 +3,8 @@
 namespace Lasseeee\Locale;
 
 use Illuminate\Routing\Router;
-use Lasseeee\Locale\Middleware\SetLocale;
+use Lasseeee\Locale\Facades\Locale;
+use Lasseeee\Locale\Http\Middleware\SetLocale;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -18,6 +19,13 @@ class LocaleServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-locale');
+    }
+
+    public function registeringPackage()
+    {
+        $this->app->bind('locale', function ($app) {
+            return new Locale();
+        });
     }
 
     public function bootingPackage()
