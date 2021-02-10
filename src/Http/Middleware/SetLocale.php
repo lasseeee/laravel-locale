@@ -2,8 +2,8 @@
 
 namespace Lasseeee\Locale\Http\Middleware;
 
-use Closure;
 use Carbon\Carbon;
+use Closure;
 use Illuminate\Http\Request;
 
 class SetLocale

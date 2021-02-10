@@ -19,6 +19,5 @@ class Locale extends Facade
     public static function routes(array $options = [])
     {
         Route::get('locale/{locale}', LocaleController::class);
-
     }
 }
