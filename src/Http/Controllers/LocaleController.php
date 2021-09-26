@@ -3,6 +3,7 @@
 namespace Lasseeee\Locale\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class LocaleController
 {
@@ -21,7 +22,7 @@ class LocaleController
 
         session(['locale' => $locale]);
 
-        flash()->success(__('Updated'));
+        flash()->success(__('Updated', [], $locale));
 
         return redirect()->back();
     }
