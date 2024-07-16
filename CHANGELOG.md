@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-locale` will be documented in this file.
 
+## 4.0.0 - 2024-07-16
+
+### Added
+- Support for Laravel 11
+
+### Removed
+- Support for older Laravel versions
+
 ## 3.0.0 - 2024-04-10
 
 ### Added
