@@ -21,6 +21,10 @@ class SetLocale
         ? $request->user()->locale
         : session('locale', app()->getLocale());
 
+        if (! in_array($locale, ['en', 'nb'])) {
+            abort(404, __('Locale not found'));
+        }
+
         app()->setLocale($locale);
 
         Carbon::setLocale($locale == 'nb' ? 'no' : 'en');
