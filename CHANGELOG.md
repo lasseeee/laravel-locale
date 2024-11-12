@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-locale` will be documented in this file.
 
+## 4.0.1 - 2024-11-12
+
+### Changed
+- Show 404 instead of 500 for unsupported locales
+
 ## 4.0.0 - 2024-07-16
 
 ### Added
