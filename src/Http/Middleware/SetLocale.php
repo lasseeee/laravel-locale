@@ -4,32 +4,27 @@ namespace Lasseeee\Locale\Http\Middleware;
 
 use Closure;
 use Carbon\Carbon;
+use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Request;
 
 class SetLocale
 {
     /**
      * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure $next
-     * @return \Illuminate\Http\Response
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): Response
     {
-        $locale = auth()->check() && $request->user()->locale
-        ? $request->user()->locale
-        : session('locale', app()->getLocale());
+        $locale = $request->user()?->locale ?? session('locale') ?? app()->getLocale();
 
-        if (! in_array($locale, ['en', 'nb'])) {
-            abort(404, __('Locale not found'));
+        $allowedLocales = ['en', 'nb'];
+
+        if (!in_array($locale, $allowedLocales, true)) {
+            abort(404);
         }
 
         app()->setLocale($locale);
 
-        Carbon::setLocale($locale == 'nb' ? 'no' : 'en');
-
-        // setlocale(LC_TIME, $locale == 'nb' ? 'nb_NO.utf8' : 'en_GB.utf8');
+        Carbon::setLocale($locale === 'nb' ? 'no' : 'en');
 
         return $next($request);
     }
