@@ -1,6 +1,13 @@
 # Changelog
 
 All notable changes to `laravel-locale` will be documented in this file.
+## 5.0.0 - 2026-03-09
+
+### Changed
+- Lowered support to Laravel 10
+
+### Fixed
+- Weak user input validation
 
 ## 4.0.1 - 2024-11-12
 
