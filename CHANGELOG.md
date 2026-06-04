@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-locale` will be documented in this file.
 
+## 7.0.0 - 2026-06-04
+
+### Added
+- Support for Laravel 12
+
 ## 6.0.0 - 2026-06-04
 
 ### Added
