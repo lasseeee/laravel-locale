@@ -1,6 +1,10 @@
 # Changelog
 
 All notable changes to `laravel-locale` will be documented in this file.
+## 8.0.0 - 2026-10-14
+
+### Added
+- Support for Laravel 13
 
 ## 7.0.0 - 2026-06-04
 
